@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
     selector: 'bs-header',
     templateUrl: 'header.template.html'
 })
 export class HeaderComponent {
-   @Input() title: String;
+   @Input('appTitle') title: String;
 }

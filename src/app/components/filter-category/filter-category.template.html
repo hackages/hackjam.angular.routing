@@ -2,7 +2,7 @@
     <li class="placeholder">
         <a data-type="all" href="#0">All</a>
     </li>
-    <li *ngFor="let category of categories" (click)="changeCategory(category)">
-        <a [class.selected]="category.selected" href="#0">{{ category.name }}</a>
+    <li *ngFor="let category of categories">
+        <a [class.selected]="category.selected" [routerLink]="['/books', category.name]">{{ category.name }}</a>
     </li>
 </ul>

@@ -1,4 +1,5 @@
-import { Section } from '../types/section';
+
+import {Section} from "../../types/section";
 const images = 'assets/img';
 
 export const sections: Section [] = [

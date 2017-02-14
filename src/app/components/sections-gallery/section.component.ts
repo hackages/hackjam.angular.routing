@@ -5,4 +5,6 @@ import { Section } from '../../types/section';
     selector: 'bs-section',
     templateUrl: 'section.template.html'
 })
-export class SectionComponent {}
+export class SectionComponent {
+    @Input('dataSource') sections;
+}

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Book } from '../../types/book';
 import { Category } from '../../types/category';
 import { AppService } from './../../services/app.service';
+import { ActivatedRoute } from "@angular/router";
 
 
 @Component({
@@ -15,7 +16,17 @@ export class BookStoreComponent {
   title: string = "Bookstore by Hackages";
   initialData: { books: Book[], categories: Category[] } = { books: [], categories: [] };
 
-  constructor(private appService: AppService){}
+  constructor(private appService: AppService, private route: ActivatedRoute){
+  }
+
+  private ngAfterViewInit(){
+    this.route.params.subscribe(({cat: name}) => {
+      console.log();
+      if(name){
+        this.changeCategory({name, selected: true});
+      }
+    })
+  }
 
   public ngOnInit() {
     // Get the books
@@ -47,14 +58,14 @@ export class BookStoreComponent {
     }
   }
 
-  search(searchTerm: string): void {
+  search = (searchTerm) => {
     searchTerm = searchTerm.toLowerCase();
     this.books = this.initialData.books.filter(book =>
         book.title.toLowerCase().includes(searchTerm) ||
             book.category.toLocaleLowerCase().includes(searchTerm));
   }
 
-  toggleSidebar(): void {
+  toggleSidebar = () => {
     this.navClosed = !this.navClosed;
   }
 }

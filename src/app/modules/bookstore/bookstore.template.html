@@ -7,27 +7,14 @@
     <bs-menubar-placeholder>
         <bs-filter-category 
         [dataSource]="categories" 
-        [changeCategory]="changeCategory">
+        (changeCategory)="changeCategory($event)">
         </bs-filter-category>
     </bs-menubar-placeholder>
 
-   <bs-books [dataSource]="books" [navClosed]="navClosed"></bs-books> 
+   <bs-books [dataSource]="books" [navClosed]="navClosed"></bs-books>
 
     <!--Sidebar navigation begins-->
-    <div>
-        <div [class.filter-is-visible]="!navClosed" class="filter">
-            <form>
-                <div class="filter-block">
-                    <h4>Search</h4>
-                    <div class="filter-content">
-                        <input name="searchTerm" #searchTerm type="search" placeholder="title, price..." (input)="search(searchTerm.value)" />
-                    </div>
-                </div>
-            </form>
-            <a href="#0" class="close" (click)="toggleSidebar()">Close</a>
-        </div>
-    </div>
-    <a href="#0" class="filter-trigger" (click)="toggleSidebar()">Filters</a>
+    <bs-sidebar [searchTerm]="search" [(navClosed)]="navClosed" [toggleSidebar]="toggleSidebar"></bs-sidebar>
 
     <!--Sidebar navigation ends-->
-</main>
+</main>]

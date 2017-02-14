@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
-    selector: 'menubar-placeholder',
+    selector: 'bs-menubar-placeholder',
     templateUrl: 'menubar.template.html',
 })
-export class MenubarComponent {}
+export class MenubarComponent {
+    @Input() dataSource;
+}
