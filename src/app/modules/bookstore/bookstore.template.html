@@ -1,0 +1,16 @@
+<main class="main-content">
+    <!--Menu filters-->
+    <bs-menubar-placeholder>
+        <bs-filter-category 
+        [categories]="categories"
+        (changeCategory)="changeCategory($event)">
+        </bs-filter-category>
+    </bs-menubar-placeholder>
+
+   <bs-books [dataSource]="books" [navClosed]="navClosed"></bs-books>
+
+    <!--Sidebar navigation begins-->
+    <bs-sidebar [searchTerm]="search" [(navClosed)]="navClosed" [toggleSidebar]="toggleSidebar"></bs-sidebar>
+
+    <!--Sidebar navigation ends-->
+</main>]

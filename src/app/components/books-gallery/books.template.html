@@ -1,0 +1,7 @@
+<section [class.filter-is-visible]="!navClosed" class="gallery">
+    <ul>
+        <a class="section" *ngFor="let book of books">
+            <img [src]="book.cover" />
+        </a>
+    </ul>
+</section>

@@ -1,0 +1,8 @@
+<ul>
+    <li class="placeholder">
+        <a data-type="all" href="#0">All</a>
+    </li>
+    <li ngFor="let category in categories">
+        <a class.selected="category.selected" [href]="category.name">{{ category.name }}</a>
+    </li>
+</ul>
