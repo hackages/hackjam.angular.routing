@@ -43,7 +43,7 @@ export class BookStoreComponent {
 
   changeCategory(selectedCategory: Category): void {
       this.categories = this.categories.map(category => {
-          category.selected = category.name === selectedCategory.name;
+          category.selected = category.name.toLowerCase() === selectedCategory.name.toLowerCase();
         return category;
     });
 
@@ -51,10 +51,10 @@ export class BookStoreComponent {
   }
 
   filterBooks(category: Category): void {
-    if(category.name === "All") {
+    if(category.name.toLowerCase() === "all") {
       this.books = this.initialData.books;
     } else {
-      this.books = this.initialData.books.filter(book => book.category === category.name);
+      this.books = this.initialData.books.filter(book => book.category.toLowerCase() === category.name.toLowerCase());
     }
   }
 

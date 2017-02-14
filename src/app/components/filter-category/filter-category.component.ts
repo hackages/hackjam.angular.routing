@@ -10,11 +10,6 @@ export class FilterCategoryComponent {
     @Output('changeCategory') changeCat: EventEmitter<Category> = new EventEmitter<Category>();
 
     changeCategory(cat: Category){
-        console.log(cat);
         this.changeCat.emit(cat);
-    }
-
-    ngAfterViewInit(){
-        console.table(this.categories);
     }
 }
